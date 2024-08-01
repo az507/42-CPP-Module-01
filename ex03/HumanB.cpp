@@ -7,7 +7,7 @@ HumanB::HumanB(std::string name) : _name(name), _weapon(NULL)
 
 HumanB::~HumanB(void)
 {
-	unsetWeapon();
+
 }
 
 void	HumanB::attack(void) const
@@ -20,15 +20,8 @@ void	HumanB::attack(void) const
 		std::cout << "bare hands (not armed)" << std::endl;
 }
 
-void	HumanB::unsetWeapon(void)
+void	HumanB::setWeapon(Weapon& weaponRef)
 {
-	delete _weapon;
-	_weapon = NULL;
-}
-
-void	HumanB::setWeapon(Weapon weaponRef)
-{
-	unsetWeapon();
-	this->_weapon = new Weapon(weaponRef.getType());
+	this->_weapon = &weaponRef;
 }
 

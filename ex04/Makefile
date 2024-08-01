@@ -1,8 +1,8 @@
 NAME	= sed
-SRCS	= main.cpp handlers.cpp
+SRCS	= main.cpp
 OBJS	= $(SRCS:.cpp=.o)
 CC	= c++
-CPPFLAGS= -Wall -Werror -Wextra -std=c++98 -g
+CPPFLAGS= -Wall -Werror -Wextra -std=c++98 #-g
 
 all:	$(NAME)
 

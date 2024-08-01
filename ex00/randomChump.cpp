@@ -2,8 +2,6 @@
 
 void	randomChump( std::string name )
 {
-	Zombie	randomZombie( name );
-
-	randomZombie.announce();
+	return Zombie(name).announce();
 }
 

@@ -7,7 +7,7 @@
 # include <ctime>
 # include <cstdlib>
 
-#define ZOMBIE_MAX 100
+# define ZOMBIE_MAX 100
 
 class	Zombie
 {

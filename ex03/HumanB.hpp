@@ -11,8 +11,7 @@ class	HumanB
 
 		void	attack(void) const;
 
-		void	unsetWeapon(void);
-		void	setWeapon(Weapon);
+		void	setWeapon(Weapon&);
 
 	private:
 		std::string	_name;

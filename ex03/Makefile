@@ -2,7 +2,7 @@ NAME	= violence
 SRCS	= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJS	= $(SRCS:.cpp=.o)
 CC	= c++
-CPPFLAGS= -Wall -Werror -Wextra -std=c++98 -g
+CPPFLAGS= -Wall -Werror -Wextra -std=c++98 #-g
 
 all:	$(NAME)
 

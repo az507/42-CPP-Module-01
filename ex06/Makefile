@@ -1,10 +1,15 @@
-NAME	= main
-SRCS	= main.cpp
+NAME	= harlFilter
+SRCS	= main.cpp Harl.cpp
 OBJS	= $(SRCS:.cpp=.o)
 CC	= c++
 CPPFLAGS= -Wall -Werror -Wextra -std=c++98 #-g
 
 all:	$(NAME)
+
+asan:	CPPFLAGS += -g -fsanitize=address
+asan:	fclean
+asan:	$(NAME)
+
 
 $(NAME):$(OBJS)
 	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)

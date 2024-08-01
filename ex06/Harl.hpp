@@ -4,6 +4,10 @@
 # include <iostream>
 # include <string>
 
+extern const std::string 	table[5];
+
+int	computeNum( std::string level );
+
 class	Harl
 {
 	public:
