@@ -4,7 +4,7 @@
 # include <iostream>
 # include <string>
 
-extern const std::string 	table[5];
+extern const std::string 	table[4];
 
 int	computeNum( std::string level );
 

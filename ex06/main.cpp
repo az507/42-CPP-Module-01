@@ -1,10 +1,10 @@
 #include "Harl.hpp"
 
-const std::string 	table[5] = { "DEBUG", "INFO", "WARNING", "ERROR", "" };
+const std::string 	table[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
 
 enum	HarlLevel
 {
-	debug,
+	debug = 0,
 	info,
 	warning,
 	error,

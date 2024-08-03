@@ -12,7 +12,7 @@ HumanB::~HumanB(void)
 
 void	HumanB::attack(void) const
 {
-	std::cout << this->_name << " attacks with their ";
+	std::cout << this->_name << " attacks with ";
 
 	if (_weapon)
 		std::cout << this->_weapon->getType() << std::endl;
