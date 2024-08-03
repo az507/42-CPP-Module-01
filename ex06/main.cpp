@@ -23,32 +23,34 @@ int	computeNum( std::string level )
 
 int	main(int argc, char *argv[])
 {
-	Harl	harl;
+	std::string	str;
+	Harl		harl;
 
-	for (int i = 1; i < argc; ++i)
+	if (argc < 2)
+		str = "";
+	else
+		str = argv[1];
+	switch (computeNum(str))
 	{
-		switch (computeNum(argv[i]))
-		{
-			case debug:
-				std::cout << "[ DEBUG ]" << std::endl;
-				harl.complain("DEBUG");
-				std::cout.put('\n');
-			case info:
-				std::cout << "[ INFO ]" << std::endl;
-				harl.complain("INFO");
-				std::cout.put('\n');
-			case warning:
-				std::cout << "[ WARNING ]" << std::endl;
-				harl.complain("WARNING");
-				std::cout.put('\n');
-			case error:
-				std::cout << "[ ERROR ]" << std::endl;
-				harl.complain("ERROR");
-				std::cout.put('\n');
-				break ;
-			default:
-				harl.complain(argv[i]);
-		}
+		case debug:
+			std::cout << "[ DEBUG ]" << std::endl;
+			harl.complain("DEBUG");
+			std::cout.put('\n');
+		case info:
+			std::cout << "[ INFO ]" << std::endl;
+			harl.complain("INFO");
+			std::cout.put('\n');
+		case warning:
+			std::cout << "[ WARNING ]" << std::endl;
+			harl.complain("WARNING");
+			std::cout.put('\n');
+		case error:
+			std::cout << "[ ERROR ]" << std::endl;
+			harl.complain("ERROR");
+			std::cout.put('\n');
+			break ;
+		default:
+			harl.complain(argv[i]);
 	}
 	std::cout.flush();
 }

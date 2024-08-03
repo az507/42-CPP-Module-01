@@ -22,35 +22,27 @@ int	main(int argc, char *argv[])
 	if (!outfile.is_open())
 		return (std::cout << "Error opening outfile\n", 1);
 
-	infile.seekg(0, std::ios_base::end);
-	std::streamsize	filepos = infile.tellg();
-
-	if (filepos == -1)
-		return (std::cout << "std::istream::tellg() error\n", 1);
-
-	infile.seekg(0, std::ios_base::beg);
-
-	char*	buffer = new char[filepos + 1];
-	infile.read(buffer, filepos);
-	buffer[filepos] = '\0';
-
-	std::string		strbuf(buffer);
+	std::string		strbuf;
 	std::string		strs[2] = { argv[2], argv[3] };
-	std::string::size_type	strpos = 0;
-
-	delete [] buffer;
+	std::string::size_type	strpos;
 
 	for ( ; ; )
 	{
-		strpos = strbuf.find(strs[FIND], strpos);
-		if (strpos == std::string::npos)
+		strpos = 0;
+		std::getline(infile, strbuf);
+		if (!infile)
 			break ;
-		strbuf.erase(strpos, strs[FIND].length());
-		strbuf.insert(strpos, strs[REPLACE]);
-		strpos += strs[REPLACE].length();
+		for ( ; ; )
+		{
+			strpos = strbuf.find(strs[FIND], strpos);
+			if (strpos == std::string::npos || !strpos)
+				break ;
+			strbuf.erase(strpos, strs[FIND].length());
+			strbuf.insert(strpos, strs[REPLACE]);
+			strpos += strs[REPLACE].length();
+		}
+		outfile << strbuf << '\n';
 	}
-
-	outfile << strbuf;
 
 	infile.close();
 	outfile.close();

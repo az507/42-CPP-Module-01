@@ -2,7 +2,8 @@ NAME	= sed
 SRCS	= main.cpp
 OBJS	= $(SRCS:.cpp=.o)
 CC	= c++
-CPPFLAGS= -Wall -Werror -Wextra -std=c++98 #-g
+CPPFLAGS= -Wall -Werror -Wextra -std=c++98 -g -MMD -MP
+RM	= rm -f
 
 all:	$(NAME)
 
@@ -18,10 +19,10 @@ $(NAME):$(OBJS)
 	$(CC) -c $(CPPFLAGS) $^ -o $@
 
 clean:
-	rm $(OBJS)
+	$(RM) $(OBJS)
 
 fclean:	clean
-	rm $(NAME)
+	$(RM) $(NAME)
 
 re:	fclean all
 
